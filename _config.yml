@@ -8,6 +8,6 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://kubernetes-big-data-eg.github.io"
 twitter_username: javiromanrh
 github_username:  javiroman
-theme: bulma-clean-theme
+remote_theme: chrisrhymes/bulma-clean-theme
 plugins:
   - jekyll-feed
