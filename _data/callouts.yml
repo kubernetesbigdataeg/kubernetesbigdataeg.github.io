@@ -1,0 +1,25 @@
+
+style: is-light
+items:
+  - title: Kubernetes Big Data Engineering Group
+    subtitle: 
+    icon: fa-code
+    description: >
+      About the project
+    call_to_action_name: The Project
+    call_to_action_link: /about
+  - title: Github Organization
+    subtitle: 
+    icon: fa-github
+    icon_brand: true
+    description: >
+      Github repositories
+    call_to_action_name: Repositories
+    call_to_action_link: https://github.com/kubernetes-big-data-eg
+  - title: Documentation
+    subtitle: 
+    icon: fa-wrench
+    description: >
+      All the documentation
+    call_to_action_name: Documentation
+    call_to_action_link: /documentation
