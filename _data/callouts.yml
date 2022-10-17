@@ -7,7 +7,7 @@ items:
     description: >
       About the project
     call_to_action_name: The Project
-    call_to_action_link: /about
+    call_to_action_link: /pages/about
   - title: Github Organization
     subtitle: 
     icon: fa-github
