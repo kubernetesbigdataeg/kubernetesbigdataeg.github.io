@@ -5,6 +5,10 @@
   dropdown:
     - name: Main documentation
       link: /documentation/main
+    - name: Operators Development
+      link: /documentation/operators
+    - name: Governance
+      link: /documentation/governance
     - name: Security
       link: /documentation/security
     - name: Governance
