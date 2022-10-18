@@ -53,3 +53,11 @@ project are listed below:
 * **Configuration**: How do we design a unified configuration strategy, which allows to centralize 
   the huge configuration options of the usually complex Big Data technologies, 
   what Kubernetes configuration pattern do we use for this task.
+
+* **Data governance**: A data governance and data quality strategy is important 
+  for the data world, especially in Big Data environments where data control 
+  and traceability can be a very complex task. These specific needs will also 
+  be studied in this project. How kubernetes can help us in this strategy, are 
+  there mechanisms that facilitate the task beyond using specific technologies 
+  of the Big Data world (Apache Atlas)?
+

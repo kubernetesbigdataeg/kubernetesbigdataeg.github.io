@@ -3,11 +3,13 @@
 - name: Documentation
   link: /documentation
   dropdown:
-    - name: documentation-uno
-      link: /documentation/uno
-    - name: documentation-dos
-      link: /documentation/dos
+    - name: Main documentation
+      link: /documentation/main
+    - name: Security
+      link: /documentation/security
+    - name: Governance
+      link: /documentation/governance
 - name: Contribute
-  link: /contribute
+  link: /pages/contribute
 - name: Authors
-  link: /authors
+  link: /pages/authors
