@@ -15,7 +15,7 @@ items:
     description: >
       Github repositories
     call_to_action_name: Repositories
-    call_to_action_link: https://github.com/kubernetes-big-data-eg
+    call_to_action_link: https://github.com/kubernetesbigdataeg
   - title: Documentation
     subtitle: 
     icon: fa-wrench

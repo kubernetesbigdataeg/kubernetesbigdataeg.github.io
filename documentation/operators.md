@@ -39,13 +39,13 @@ The **Operator Framework** includes:
 
 ### Prerequisites:
 * git
-* go version 1.17
+* go version 1.18
 
 ### Vanilla Go compiler installation example
 
 ```
-curl -LO https://go.dev/dl/go1.17.8.linux-amd64.tar.gz
-tar xvzf go1.17.8.linux-amd64.tar.gz -C $HOME/.local/share
+curl -LO https://go.dev/dl/go1.18.6.linux-amd64.tar.gz
+tar xvzf go1.18.6.linux-amd64.tar.gz -C $HOME/.local/share
 mkdir -p $HOME/go/{bin,pkg,src}
 export PATH=$PATH:$HOME/.local/share/go/bin
 export GOPATH=$HOME/go
@@ -94,7 +94,7 @@ echo -ne "\toperator-sdk cli installed at $BINPATH\n"
 
 | Command  | Output  |
 |----------|---------|
-| go version  | go version go1.17.8 linux/amd64   |
+| go version  | go version go1.18.6 linux/amd64   |
 | operator-sdk version  | operator-sdk version: "v1.24.0", commit: "de6a14d03de3c36dcc9de3891af788b49d15f0f3", kubernetes version: "1.24.2", go version: "go1.18.6", GOOS: "linux", GOARCH: "amd64"  |
 
 **Happy hacking!**
