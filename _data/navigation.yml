@@ -1,7 +1,7 @@
 - name: Project
   link: /pages/about
 - name: Documentation
-  link: /documentation
+  link: /documentation/main
   dropdown:
     - name: Main documentation
       link: /documentation/main
