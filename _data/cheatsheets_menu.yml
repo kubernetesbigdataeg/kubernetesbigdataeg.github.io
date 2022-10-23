@@ -1,0 +1,22 @@
+- label: Getting Started
+  items:
+    - name: Installation
+      link: /documentation/getting-started/installation/
+    - name: Configuration
+      link: /documentation/getting-started/configuration/
+    - name: Theming
+      link: /documentation/getting-started/theming/
+    - name: Sidebar
+      link: /documentation/getting-started/sidebar/
+    - name: Scripts
+      link: /documentation/getting-started/scripts/
+
+
+- label: Navigation
+  items:
+    - name: Top navigation
+      link: /documentation/navigation/top-navigation/
+    - name: Footer navigation
+      link: /documentation/navigation/footer-navigation/
+    - name: Menubar
+      link: /documentation/navigation/menubar/
