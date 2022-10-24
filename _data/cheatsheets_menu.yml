@@ -1,22 +1,13 @@
-- label: Getting Started
+- label: Getting Started Guides
   items:
-    - name: Installation
-      link: /documentation/getting-started/installation/
-    - name: Configuration
-      link: /documentation/getting-started/configuration/
-    - name: Theming
-      link: /documentation/getting-started/theming/
-    - name: Sidebar
-      link: /documentation/getting-started/sidebar/
-    - name: Scripts
-      link: /documentation/getting-started/scripts/
+    - name: Kubernetes RBAC
+      link: /documentation/getting-started-guides/rbac
+    - name: Persistent Volumes
+      link: /documentation/getting-started-guides/persistentvolumes
 
-
-- label: Navigation
+- label: Research Topics
   items:
-    - name: Top navigation
-      link: /documentation/navigation/top-navigation/
-    - name: Footer navigation
-      link: /documentation/navigation/footer-navigation/
-    - name: Menubar
-      link: /documentation/navigation/menubar/
+    - name: Governance
+      link: /documentation/research/governance
+    - name: Storage
+      link: /documentation/research/storage
