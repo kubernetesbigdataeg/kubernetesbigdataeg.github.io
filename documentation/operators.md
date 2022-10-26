@@ -97,5 +97,29 @@ echo -ne "\toperator-sdk cli installed at $BINPATH\n"
 | go version  | go version go1.18.6 linux/amd64   |
 | operator-sdk version  | operator-sdk version: "v1.24.0", commit: "de6a14d03de3c36dcc9de3891af788b49d15f0f3", kubernetes version: "1.24.2", go version: "go1.18.6", GOOS: "linux", GOARCH: "amd64"  |
 
+### Operator Maturity Model: Capability Levels
+
+The Operator Framework defines a [Capability Model](https://
+operatorframework.io/operator-capabilities/) that categorizes Operators
+based on their functionality and design. This model helps to break down Operators based
+on their maturity, and also describes the extent of an Operator's interoperability with
+OLM and the capabilities users can expect when using the Operator.
+
+The Capability Model is divided into five hierarchical levels. Operators can be published
+at any one of these levels and, as they grow, may evolve and graduate from one level to the
+next as features and functionality are added.
+
+| Level | Funcionalitiy |
+|----------|---------|
+| Level 1 | [Basic Install](https://sdk.operatorframework.io/docs/overview/operator-capabilities/#level-1---basic-install) |
+| Level 2 | [Seamless Upgrades](https://sdk.operatorframework.io/docs/overview/operator-capabilities/#level-2---seamless-upgrades)   |
+| Level 3 | [Full Lifecycle](https://sdk.operatorframework.io/docs/overview/operator-capabilities/#level-3---full-lifecycle)   |
+| Level 4 | [Deep Insights](https://sdk.operatorframework.io/docs/overview/operator-capabilities/#level-4---deep-insights)   |
+| Level 5 | [Auto Pilot](https://sdk.operatorframework.io/docs/overview/operator-capabilities/#level-5---auto-pilot)   |
+
+In this project we will use the **Level 0** capability to indicate the operator is
+in the **Planning Stage**, the bootstrapping of the operator, and early development
+stages.
+
 **Happy hacking!**
 
