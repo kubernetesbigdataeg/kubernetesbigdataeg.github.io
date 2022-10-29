@@ -2,6 +2,8 @@
   items:
     - name: Kubernetes RBAC
       link: /documentation/getting-started-guides/rbac
+    - name: Kubectl
+      link: /documentation/getting-started-guides/kubectl
     - name: Persistent Volumes
       link: /documentation/getting-started-guides/persistentvolumes
 
