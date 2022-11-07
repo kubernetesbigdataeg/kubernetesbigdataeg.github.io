@@ -121,5 +121,9 @@ In this project we will use the **Level 0** capability to indicate the operator 
 in the **Planning Stage**, the bootstrapping of the operator, and early development
 stages.
 
+More about operators here.
+
+[Operators Research](documentation/research/operators.md)
+
 **Happy hacking!**
 
