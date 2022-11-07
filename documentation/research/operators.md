@@ -111,5 +111,5 @@ managed resources managed by the Operator.
 
 ## Operator Framework Installation
 
-[Operator Framework SDK Installation](operators)
+[Operator Framework SDK Installation](https://kubernetesbigdataeg.github.io/documentation/operators)
 
