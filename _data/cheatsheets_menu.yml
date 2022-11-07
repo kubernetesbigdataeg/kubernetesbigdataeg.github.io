@@ -9,6 +9,8 @@
 
 - label: Research Topics
   items:
+    - name: Operators Research
+      link: /documentation/research/operators
     - name: Governance
       link: /documentation/research/governance
     - name: Storage
