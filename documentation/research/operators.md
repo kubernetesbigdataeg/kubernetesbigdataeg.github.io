@@ -111,5 +111,5 @@ managed resources managed by the Operator.
 
 ## Operator Framework Installation
 
-[Operator Framework SDK Installation](documentation/operators.md)
+[Operator Framework SDK Installation](../documentation/operators.md)
 
