@@ -123,7 +123,7 @@ stages.
 
 More about operators here.
 
-[Operators Research](documentation/research/operators.md)
+[Operators Research](operators)
 
 **Happy hacking!**
 
