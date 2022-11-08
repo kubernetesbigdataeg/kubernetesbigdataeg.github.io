@@ -7,7 +7,7 @@ show_sidebar: false
 toc: true
 ---
 
-<img align="center" width="70%" src="../../images/kubectl.png">
+<img align="center" width="70%" src="../../images/crio-logo.png">
 
 ## Generic
 

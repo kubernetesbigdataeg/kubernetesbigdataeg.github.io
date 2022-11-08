@@ -4,6 +4,10 @@
       link: /documentation/getting-started-guides/rbac
     - name: Kubectl
       link: /documentation/getting-started-guides/kubectl
+    - name: CRI-O crictl
+      link: /documentation/getting-started-guides/crictl
+    - name: Kustomize
+      link: /documentation/getting-started-guides/kustomize
     - name: Persistent Volumes
       link: /documentation/getting-started-guides/persistentvolumes
 
