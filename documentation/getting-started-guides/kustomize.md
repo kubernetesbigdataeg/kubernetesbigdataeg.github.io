@@ -186,11 +186,12 @@ power of kustomize tool. Let's see a small feature for understanding what we can
 
 The fields in a kustomization file allow the user to specify which resource files 
 to use as input, how to generate new resources, and how to transform those 
-resources - add labels, patch them, etc.
+resources - add labels, patch them, etc. 
+[A Kustomize feature list](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/#kustomize-feature-list)
 
 ### Example 1
-For example we are going to add label to our manifests:
 
+For example we are going to add label to our manifests:
 
 ```kustomization.yaml ```
 
@@ -310,10 +311,85 @@ when no longer referenced by any other resource, is eventually garbage collected
 
 ## Bases and overlays
 
+Kustomize has the concepts of bases and overlays. 
+
+A base is a directory with a kustomization.yaml, which contains a set of resources 
+and associated customization. A base could be either a local directory or a 
+directory from a remote repo, as long as a kustomization.yaml is present inside. 
+
+An overlay is a directory with a kustomization.yaml that refers to other kustomization 
+directories as its bases. 
+
+A base has no knowledge of an overlay and can be used in multiple overlays. 
+An overlay may have multiple bases and it composes all resources from bases and 
+may also have customization on top of them.
+
+In other words:
+
+1. Base Layer (bases): Specifies the most common resources.
+2. Patch Layers (overlays): Specifies use case specific resources.
+
 ## Complete example
 
-*Note*: Example based on DigitalOcean awesome article.
+Let’s step through how Kustomize works using a deployment scenario involving 3 
+different environments: dev, staging, and production.
 
+All of the environments will use different types of services for exposing an 
+NGINX deployment and different resources:
+
+* Dev: ClusterIP, minimal resources.
+* Staging: NodePort, medium resources.
+* Production: LoadBalancer, big resources.
+
+Kustomize project folder structure proposal:
+
+```
+example/
+├── base
+│   ├── kustomization.yaml
+│   ├── nginx-configmap.yaml
+│   ├── nginx-deployment.yaml                       <== Base Deployment
+│   └── nginx-service.yaml                          <== Base Service
+└── overlay
+    ├── dev
+    │   ├── kustomization.yaml
+    │   └── nginx-deployment-resources-minimal.yaml <== Patch Base Deployment
+    ├── production
+    │   ├── kustomization.yaml
+    │   ├── nginx-service-loadbalancer.yaml         <== Patch Base Service
+    │   └── nginx-deployment-resources-big.yaml     <== Patch Base Deployment
+    └── staging
+        ├── kustomization.yaml
+        ├── nginx-service-nodeport.yaml             <== Patch Base Service
+        └── nginx-deployment-resources-medium.yaml  <== Patch Base Deployment
+```
+
+So in this example we are going to patch the base Deployment (with different 
+resources) and the base Service (with different service discovery).
+
+### The base layer
+
+<img align="center" width="100%" src="../../images/kustomize-example-base.png">
+
+### The overlay for development
+
+<img align="center" width="100%" src="../../images/kustomize-example-dev.png">
+
+### The overlay for stagging
+
+<img align="center" width="100%" src="../../images/kustomize-example-stagging.png">
+
+### The overlay for production
+
+<img align="center" width="100%" src="../../images/kustomize-example-production.png">
+
+Building of the manifest:
+
+```
+kustomize build overlay/dev
+kustomize build overlay/staging/
+kustomize build overlay/production/
+```
 
 
 
