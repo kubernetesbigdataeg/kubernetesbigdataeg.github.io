@@ -8,6 +8,8 @@
       link: /documentation/getting-started-guides/crictl
     - name: Kustomize
       link: /documentation/getting-started-guides/kustomize
+    - name: Istio
+      link: /documentation/getting-started-guides/istio
     - name: Persistent Volumes
       link: /documentation/getting-started-guides/persistentvolumes
 
