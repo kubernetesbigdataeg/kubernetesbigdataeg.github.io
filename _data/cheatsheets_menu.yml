@@ -17,6 +17,8 @@
   items:
     - name: Operators Research
       link: /documentation/research/operators
+    - name: Kubeflow
+      link: /documentation/research/kubeflow
     - name: Governance
       link: /documentation/research/governance
     - name: Storage
