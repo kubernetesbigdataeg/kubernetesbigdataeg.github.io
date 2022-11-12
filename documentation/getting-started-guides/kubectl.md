@@ -19,6 +19,7 @@ toc: true
 | ```kubectl api-resources```      |
 | ```kubectl api-resources --namespaced=true```      |
 | ```kubectl api-resources --namespaced=false```      |
+| ```kubectl describe clusterrole cluster-admin```      |
 | ```kubectl get all (-n namespace, -A, --all-namespaces)```      |
 
 ## Namespaces
@@ -76,6 +77,7 @@ toc: true
 | ```kubectl create deployment nginx --image=nginx --replicas=4``` |
 | ```kubectl scale deployment nginx --replicas=5``` |
 | ```kubectl apply view-last-applied deploy myapp-deployment``` |
+| ```kubectl rollout restart sts kudu-master -n apache-kudu-ns``` |
 
 ## Service
 
