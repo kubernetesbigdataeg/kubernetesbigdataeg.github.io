@@ -19,6 +19,7 @@ toc: true
 | ```kubectl api-resources```      |
 | ```kubectl api-resources --namespaced=true```      |
 | ```kubectl api-resources --namespaced=false```      |
+| ```kubectl describe clusterrole cluster-admin```      |
 | ```kubectl get all (-n namespace, -A, --all-namespaces)```      |
 
 ## Namespaces
