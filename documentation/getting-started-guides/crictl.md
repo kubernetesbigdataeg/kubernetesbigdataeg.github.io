@@ -12,3 +12,26 @@ toc: true
 ## Generic
 
 | ```crictl -D pull --creds <USER>:<PASSWORD> docker.io/istio/proxyv2:1.14.1``` |
+
+## Authenticate daemon
+
+```
+# podman login -u testuser -p testpassword docker.io
+# sudo cp ${XDG_RUNTIME_DIR}/containers/auth.json /etc/crio/crio.conf
+# grep global_auth_file /etc/crio/crio.conf 
+global_auth_file = "/etc/crio/auth.json"
+
+# cat /etc/crio/auth.json 
+{
+    "auths": {
+        "docker.io": {
+                        "auth": "amF2aXJvbWFuOnBdGhvbjFiaWNoQRvY2tlcmh1Qg=="
+                
+        }
+        
+    }
+
+}
+# sudo systemctl restart crio
+```
+
