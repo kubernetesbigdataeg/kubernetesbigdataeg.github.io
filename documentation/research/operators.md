@@ -113,3 +113,32 @@ managed resources managed by the Operator.
 
 [Operator Framework SDK Installation](https://kubernetesbigdataeg.github.io/documentation/operators)
 
+## Project Scaffolding and notes
+
+Running the Operator: Run locally outside the cluster
+
+```
+make install run
+```
+
+The install executes kustomize in the folder ```config/crd``` against the configured cluster 
+(it's look for KUBECONFIG variable). The run execute locally el ```main.go ``` binary 
+```bin/manager```
+
+Running the Operator: Run as a Deployment inside the cluster
+
+```
+make deploy
+```
+
+By default, a new namespace is created with name ```<project-name>-system```, ex. 
+memcached-operator-system, and will be used for the deployment. This will 
+also install the RBAC manifests from ```config/rbac```.
+
+Cleanup the Operator
+
+```
+k delete -f config/samples/javiroman_v1alpha1_visitorapp.yaml
+make undeploy
+```
+
