@@ -122,8 +122,8 @@ make install run
 ```
 
 The install executes kustomize in the folder ```config/crd``` against the configured cluster 
-(it's look for KUBECONFIG variable). The run execute locally el ```main.go ``` binary 
-```bin/manager```
+(it looks for the KUBECONFIG variable). The run execute locally the ```main.go``` binary at
+```bin/manager```.
 
 Running the Operator: Run as a Deployment inside the cluster
 
