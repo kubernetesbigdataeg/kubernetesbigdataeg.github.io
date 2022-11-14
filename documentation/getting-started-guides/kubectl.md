@@ -91,6 +91,7 @@ toc: true
 ## Config
 
 | ```kubectl config view```|
+| ```kubectl config view --minify```|
 | ```kubectl config current-context```|
 | ```kubectl config get-contexts```|
 | ```kubectl config set-context --current --namespace=kube-system```|

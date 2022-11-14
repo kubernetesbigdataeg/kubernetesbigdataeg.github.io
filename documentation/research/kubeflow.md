@@ -184,6 +184,68 @@ k rollout restart deployment dex -n auth
 
 Note: https://bcrypt-generator.com/ 
 
+## Multi Tenancy Approach
+
+In Kubeflow clusters, users often need to be isolated into a group, where a 
+group includes one or more users. Additionally, a user may need to belong to 
+multiple groups. Kubeflow’s multi-user isolation simplifies user operations 
+because each user only views and edited\s the Kubeflow components and model 
+artifacts defined in their configuration. A user’s view is not cluttered by 
+components or model artifacts that are not in their configuration. This isolation 
+also provides for efficient infrastructure and operations i.e. a single cluster 
+supports multiple isolated users, and does not require the administrator to 
+operate different clusters to isolate users.
+
+The key concepts regarding this topic are:
+
+* Administrator: An Administrator is someone who creates and maintains the 
+Kubeflow cluster. This person configures permissions (i.e. view, edit) for other users.
+* User: A User is someone who has access to some set of resources in the cluster. 
+A user needs to be granted access permissions by the administrator.
+* Profile: A Profile is a unique configuration for a user, which determines their 
+access privileges and is defined by the Administrator.
+* Isolation: Isolation uses Kubernetes Namespaces. Namespaces isolate users or 
+a group of users.
+* Authentication: Authentication is provided by an integration of Istio and 
+OIDC and is secured by mTLS. 
+* Authorization: Authorization is provided by an integration with Kubernetes RBAC.
+
+Kubeflow multi-user isolation is configured by Kubeflow administrators. 
+Administrators configure Kubeflow User Profiles for each user. After the 
+configuration is created and applied, a User can only access the Kubeflow 
+components that the Administrator has configured for them. The configuration 
+limits non-authorized UI users from viewing or accidentally deleting model artifacts.
+
+With multi-user isolation, Users are authenticated and authorized, and then 
+provided with a time-based token i.e. a json web token (JWT). The access 
+token is carried as a web header in user requests, and authorizes the user to 
+access the resources configured in their Profile. The Profile configures several 
+items including the User’s namespace(s), RBAC RoleBinding, Istio ServiceRole 
+and ServiceRoleBindings along with Resource Quotas and Custom Plug-ins.
+
+An example of all of this [here](https://www.kubeflow.org/docs/components/multi-tenancy/getting-started/)
+
+As example of creating user Profile, we can define the limits allowed for the 
+user with standard NameSpace quotas:
+
+```
+apiVersion: kubeflow.org/v1beta1
+kind: Profile
+metadata:
+  name: profileName   # replace with the name of profile you want, this will be user's namespace name
+spec:
+  owner:
+    kind: User
+    name: userid@email.com   # replace with the email of the user
+
+  resourceQuotaSpec:    # resource quota can be set optionally
+   hard:
+     cpu: "2"
+     memory: 2Gi
+     persistentvolumeclaims: "1"
+     requests.nvidia.com/gpu: "1"
+     requests.storage: "5Gi"
+```
 
 ## Setting Up Your Kubeflow Development Environment
 
@@ -230,3 +292,7 @@ conda activate kfenv
 (kfenv) kfp
 (kfenv) conda deactivate
 ```
+
+### KFP CLI Pipeline Simple Example
+
+
