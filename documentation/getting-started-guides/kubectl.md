@@ -51,6 +51,7 @@ toc: true
 | ```kubectl exec nginx -ti -- bash``` |
 | ```kubectl exec etcd-k8s-master.kubernetes.lan -n kube-system -- etcdctl version``` |
 | ```kubectl run nginx --image=nginx --dry-run=client -o yaml``` |
+| ```kubectl get po --field-selector spec.nodeName=k8s-worker01.kubernetes.lan``` |
 
 ## ReplicationController
 
@@ -126,6 +127,8 @@ toc: true
 | ```kubectl get pv pv001```|
 | ```kubectl get pv pv001 -o yaml > pv001.yaml```|
 | ```kubectl get pvc```|
+| ```kubectl get pvc datadir-zookeeper-sample-0 -ojson | jq -r '.spec.resources'```|
+| ```kubectl get pv -o=custom-columns=CAPACITY:.spec.capacity```|
 
 ## Misc
 
