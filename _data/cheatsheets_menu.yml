@@ -19,6 +19,8 @@
       link: /documentation/research/operators
     - name: Kubeflow
       link: /documentation/research/kubeflow
+    - name: Hadoop
+      link: /documentation/research/hadoop
     - name: Governance
       link: /documentation/research/governance
     - name: Storage
