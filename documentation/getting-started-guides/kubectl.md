@@ -52,6 +52,7 @@ toc: true
 | ```kubectl exec etcd-k8s-master.kubernetes.lan -n kube-system -- etcdctl version``` |
 | ```kubectl run nginx --image=nginx --dry-run=client -o yaml``` |
 | ```kubectl get po --field-selector spec.nodeName=k8s-worker01.kubernetes.lan``` |
+| ```kubectl delete po my-pod --grace-period=0``` |
 
 ## ReplicationController
 
