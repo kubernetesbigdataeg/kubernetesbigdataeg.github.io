@@ -10,6 +10,8 @@
       link: /documentation/getting-started-guides/kustomize
     - name: Istio
       link: /documentation/getting-started-guides/istio
+    - name: SDK Configurations
+      link: /documentation/getting-started-guides/sdks
     - name: Persistent Volumes
       link: /documentation/getting-started-guides/persistentvolumes
 
