@@ -23,6 +23,8 @@
       link: /documentation/research/kubeflow
     - name: Hadoop
       link: /documentation/research/hadoop
+    - name: YuniKorn Scheduler
+      link: /documentation/research/yunikorn
     - name: Governance
       link: /documentation/research/governance
     - name: Storage
