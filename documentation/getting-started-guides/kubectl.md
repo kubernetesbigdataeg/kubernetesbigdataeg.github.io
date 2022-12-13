@@ -140,6 +140,17 @@ toc: true
 | ```kubectl port-forward nginx-test 8080:80 --address="0.0.0.0"```|
 
 
+```
+k create ns uno
+k create ns dos
+k run nginx --image=nginx --namespace=uno
+k run nginx --image=nginx --namespace=dos
+k expose pod nginx -n uno --port=80 --name=nginx-service
+k expose pod nginx -n dos --port=80 --name=nginx-service
+
+k exec nginx -n uno -ti -- curl nginx-service.dos.svc.cluster.local
+k exec nginx -n dos -ti -- curl nginx-service.uno.svc.cluster.local
+```
 
 
 
