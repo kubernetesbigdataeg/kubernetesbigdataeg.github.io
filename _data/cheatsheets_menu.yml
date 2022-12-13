@@ -12,10 +12,12 @@
       link: /documentation/getting-started-guides/istio
     - name: SDK Configurations
       link: /documentation/getting-started-guides/sdks
-    - name: Helm Package Manger
+    - name: Helm Package Manager
       link: /documentation/getting-started-guides/helm
     - name: Kustomize and Helm Approach
       link: /documentation/getting-started-guides/kustomizehelm
+    - name: Argo CD
+      link: /documentation/getting-started-guides/argocd
     - name: Persistent Volumes
       link: /documentation/getting-started-guides/persistentvolumes
 
