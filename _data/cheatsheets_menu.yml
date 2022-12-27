@@ -14,6 +14,8 @@
       link: /documentation/getting-started-guides/sdks
     - name: Helm Package Manager
       link: /documentation/getting-started-guides/helm
+    - name: Operator Lifecycle Manager (OLM)
+      link: /documentation/getting-started-guides/olm
     - name: Kustomize and Helm Approach
       link: /documentation/getting-started-guides/kustomizehelm
     - name: Argo CD
