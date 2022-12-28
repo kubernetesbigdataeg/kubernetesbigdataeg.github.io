@@ -371,12 +371,12 @@ which the operator is installed in the namespace you want.
 
 #### Let's see a theorical example:
 
-We want to install an operator named ```my-operator``` in the namespace
-```foo``` that is cluster scoped, from a catalog named ```my-catalog``` that
-is in the namespace ```olm``` and we want to subscribe to the channel
-```stable```.
+We want to install an operator named **my-operator** in the namespace
+```foo``` that is cluster scoped, from a catalog named **my-catalog** that
+is in the namespace **olm** and we want to subscribe to the channel
+**stable**.
 
-1. create a global OperatorGroup (which selects all namespaces):
+- Create a global OperatorGroup (which selects all namespaces):
 
 ```
 $ cat og.yaml
@@ -391,7 +391,7 @@ $ kubectl apply og.yaml
   operatorgroup.operators.coreos.com/my-group created
 ```
 
-2. Then, create a subscription for the operator:
+- Then, create a subscription for the operator:
 
 ```
 $ cat sub.yaml
@@ -412,7 +412,7 @@ $ kubectl apply -f sub.yaml
 subscription.operators.coreos.com/sub-to-my-operator created
 ```
 
-3. Since installPlanApproval is set to Manual, we need to manually go in and approve the InstallPlan
+- Since installPlanApproval is set to Manual, we need to manually go in and approve the InstallPlan
 
 ```
 $ kubectl get ip -n foo
@@ -652,8 +652,8 @@ zk-2                                                              1/1     Runnin
 zookeeper-operator-controller-manager-7fc49644db-tc6xk            2/2     Running     0          10m
 ```
 
-Note: The Operator can then be uninstalled using the operator-sdk cleanup
-<packageName> command.
+**Note**: The Operator can then be uninstalled using the operator-sdk cleanup
+**packageName** command.
 
 ### Exploring make bundle
 
@@ -744,7 +744,7 @@ is able of consuming our Operator Bundle such as does it with the OperatorHub ca
 
 ### Deploying OLM bundles in production
 
-OLM and **Operator Registry** consumes Operator bundles via a catalog of Operators, 
+**OLM** and [Operator Registry](https://github.com/operator-framework/operator-registry) consumes Operator bundles via a catalog of Operators, 
 implemented as an index image, which are composed of one or more bundles.
 
 The Operator Registry runs in a Kubernetes cluster to provide operator catalog data 
