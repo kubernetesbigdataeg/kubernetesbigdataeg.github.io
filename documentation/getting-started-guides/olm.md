@@ -798,5 +798,94 @@ $ k get packagemanifest | grep zookeeper
 zookeeper-operator                         Coolest Catalog       3m11s
 zookeeper-operator                         Community Operators   5d7h
 
-$ 
+$ cat <<'EOF' | kubectl apply -f -
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: zookeeper
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: operatorgroup
+  namespace: zookeeper
+spec:
+  targetNamespaces:
+  - zookeeper
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: zookeeper
+  namespace: zookeeper
+spec:
+  channel: alpha
+  name: zookeeper-operator
+  source: cool-catalog
+  sourceNamespace: olm
+EOF
+
+$ cat <<'EOF' | kubectl apply -n zookeeper -f -
+apiVersion: bigdata.kubernetesbigdataeg.org/v1alpha1
+kind: Zookeeper
+metadata:
+  name: zk
+spec:
+  size: 3
+EOF
+
+$ k get -n zookeeper po
+NAME                                                     READY   STATUS    RESTARTS   AGE
+zk-0                                                     1/1     Running   1          22h
+zk-1                                                     1/1     Running   1          22h
+zk-2                                                     1/1     Running   1          22h
+zookeeper-operator-controller-manager-69985cc9b8-dktq7   2/2     Running   2          22h
 ```
+
+Again by default the Catalog is created using the deprecated SQLite database:
+
+```
+$ k exec -n olm cool-catalog-x6gts -ti -- ps
+PID   USER     TIME  COMMAND
+    1 1001      0:00 /bin/opm registry serve --database /database/index.db
+ 1630 1001      0:00 ps
+```
+
+In the next section we are going to create a Catalog using the new File-based Catalogs.
+
+### A resource for getting information about our catalog
+
+```
+$ k port-forward -n olm cool-catalog-x6gts 50051:50051 --address="0.0.0.0"
+
+$ grpcurl -plaintext  localhost:50051 list api.Registry
+api.Registry.GetBundle
+api.Registry.GetBundleForChannel
+api.Registry.GetBundleThatReplaces
+api.Registry.GetChannelEntriesThatProvide
+api.Registry.GetChannelEntriesThatReplace
+api.Registry.GetDefaultBundleThatProvides
+api.Registry.GetLatestChannelEntriesThatProvide
+api.Registry.GetPackage
+api.Registry.ListBundles
+api.Registry.ListPackages
+
+$ grpcurl -plaintext  localhost:50051 api.Registry.ListBundles
+
+$ grpcurl -plaintext  localhost:50051 api.Registry.ListPackages
+{
+  "name": "zookeeper-operator"
+
+}
+
+$ grpcurl -plaintext -d '{"name":"zookeeper-operator"}'  localhost:50051 api.Registry.GetPackage
+```
+
+## File-based Catalogs
+
+File-based catalogs are the latest iteration of OLM’s catalog format. It is a fully plaintext-based 
+(JSON or YAML) evolution of the previous sqlite database format that is fully backwards compatible.
+
+
+
+
